@@ -8,7 +8,7 @@ on:
 
 jobs: 
   test: 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest 
     
     steps:
       - name: checkout repository
@@ -27,4 +27,21 @@ jobs:
          pip install -r requirements.txt
 
       - name: run tests
-        run: python -m pytest
+        run: python -m pytest  
+  
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      
+      - name: set up python
+        uses: actions/setup-python@v5
+
+      - name: install ruff
+        run: pip install ruff
+
+      - name: run lint
+        run: ruff check .
+      
