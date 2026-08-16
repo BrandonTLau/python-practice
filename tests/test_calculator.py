@@ -2,6 +2,7 @@ import pytest
 
 from calculator import add, divide, multiply, subtract
 
+
 def test_add_positive_and_negative():
     assert add(2, 3) == 5
     assert add(-1, 1) == 0
